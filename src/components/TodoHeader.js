@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Clock from "./CurrentDate";
+import Clock from "../CurrentDate";
 
 const TodoHeadStyled = styled.div`
   padding: 0 32px 24px 32px;

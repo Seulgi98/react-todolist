@@ -1,9 +1,9 @@
-.form {
+.inputForm {
     display: flex;
     border-bottom: 1px solid #f1f3f5;
 }
 
-.form input {
+.inputForm input {
     flex: 1; /* 버튼을 뺀 빈 공간을 모두 채워줍니다 */
     font-size: 17px;
     padding-left: 20px;
@@ -11,7 +11,7 @@
     border: none;
 }
 
-.create-button {
+.addButton {
     padding: 10px;
     margin: 5px 10px 5px 10px;
     background: #5940ff;
@@ -22,6 +22,6 @@
     cursor: pointer;
 }
 
-.create-button:hover {
+.addButton:hover {
     background: #8e7cff;
 }
