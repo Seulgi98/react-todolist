@@ -8,7 +8,7 @@ import '../styles/InputForm.css';
 const InputForm = ({value, onChange, onCreate, onKeyPress}) => {
   return (
     <div className="inputForm">
-      <input value={value} onChange={onChange} onKeyPress={onKeyPress}/>
+      <input value={value} onChange={onChange} onKeyPress={onKeyPress} placeholder={"새로운 할 일"}/>
       <div className="addButton" onClick={onCreate}>
         추가
       </div>

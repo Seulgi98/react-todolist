@@ -8,14 +8,14 @@ import InputForm from "./components/InputForm";
 
 class App extends Component {
 
-  id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
+  id = 0
 
   state = {
     input: '',
     todos: [
-      {id: 0, text: ' 리액트 소개', checked: false},
-      {id: 1, text: ' 리액트 소개', checked: true},
-      {id: 2, text: ' 리액트 소개', checked: false}
+      // {id: 0, text: 'Todo list test', checked: false},
+      // {id: 1, text: 'Todo list test2', checked: true},
+      // {id: 2, text: 'Todo list test3', checked: false}
     ]
   }
 
@@ -65,13 +65,22 @@ class App extends Component {
     });
   }
 
+  handleInputRemove = (id) => {
+    //파라미터로 받아온 id 를 갖고있지 않는 배열 새로 생성
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.filter(todo => todo.id !== id)
+    });
+  }
+
   render() {
     const { input, todos } = this.state;
     const { //비구조화 할당(this를 붙여주는 작업 생략)
       handleInputChange,
       handleInputCreate,
       handleKeyPress,
-      handleToggle
+      handleToggle,
+      handleInputRemove
     } = this;
 
     return (
@@ -90,7 +99,7 @@ class App extends Component {
                        onKeyPress={handleKeyPress}
                        onChange={handleInputChange}
                        onCreate={handleInputCreate}/>
-            <TodoList todos={todos} onToggle={handleToggle}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
+            <TodoList todos={todos} onToggle={handleToggle} onRemove={handleInputRemove}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
           </div>
         </div>
       </div>
