@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
-import Clock from "../CurrentDate";
 
 const TodoHeadStyled = styled.div`
   padding: 0 32px 24px 32px;
@@ -15,11 +14,16 @@ const TodoHeadStyled = styled.div`
 `;
 
 const TodoHeader = () => {
+  const [todoState, setTodoState] = useState([])
+  const undoneTasks = () => {
+    setTodoState(
+      todoState.filter(todo => !todo.checked)
+    );
+  }
+//할 일 개수 구현중..
   return (
     <TodoHeadStyled>
-      <div className="todoCount">
-        할 일 2개 남음
-      </div>
+      <div className='todoCount'>할일 {undoneTasks.length}개 남음</div>
     </TodoHeadStyled>
   );
 };

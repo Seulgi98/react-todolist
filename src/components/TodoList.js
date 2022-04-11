@@ -12,13 +12,14 @@ const TodoItemList = (props) => {
   //객체 값 모두 props로 전달
   //todos 배열을 컴포넌트 배열로 변환
   const todoList = todos.map(
-    ({id, text, checked}) => (
+    ({id, text, checked, done}) => (
       <TodoItem
         id={id}
         text={text}
         checked={checked}
         onToggle={onToggle}
         onRemove={onRemove}
+        done = {done}
         key={id}
       />
     )

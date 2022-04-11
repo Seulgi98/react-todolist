@@ -17,11 +17,14 @@ const App = () => {
   }
 
   const handleInputCreate = () => {
-    setTodoState(todoState.concat(
+    setInputState('')
+    setTodoState(
+      todoState.concat(
         {
           id: Math.random(),
           text: inputState,
-          checked: false
+          checked: false,
+          done: false,
         }
       )
     )
@@ -29,13 +32,12 @@ const App = () => {
 
   const handleKeyPress = (e) => {
     // 눌려진 키가 Enter 면 handleCreate 호출
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       handleInputCreate();
     }
   }
 
   const handleToggle = (id) => {
-
     // 파라미터로 받은 id 를 가지고 몇번째 아이템인지 찾습니다.
     const index = todoState.findIndex(todo => todo.id === id);
     const selected = todoState[index]; // 선택한 객체
@@ -72,10 +74,12 @@ const App = () => {
                      onKeyPress={handleKeyPress}
                      onChange={handleInputChange}
                      onCreate={handleInputCreate}/>
-          <TodoList todos={todoState} onToggle={handleToggle} onRemove={handleInputRemove}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
+          <TodoList todos={todoState} onToggle={handleToggle}
+                    onRemove={handleInputRemove}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
         </div>
       </div>
     </div>
   );
 };
+
 export default App;
