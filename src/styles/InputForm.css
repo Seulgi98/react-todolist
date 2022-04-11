@@ -1,0 +1,27 @@
+.form {
+    display: flex;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.form input {
+    flex: 1; /* 버튼을 뺀 빈 공간을 모두 채워줍니다 */
+    font-size: 17px;
+    padding-left: 20px;
+    outline: none;
+    border: none;
+}
+
+.create-button {
+    padding: 10px;
+    margin: 5px 10px 5px 10px;
+    background: #5940ff;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background: #8e7cff;
+}

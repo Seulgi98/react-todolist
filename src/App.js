@@ -3,6 +3,7 @@ import React from 'react';
 import Clock from "./CurrentDate";
 import TodoHeader from "./TodoHeader";
 import TodoList from "./TodoList";
+import InputForm from "./components/InputForm";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         </div>
         <TodoHeader/>
         <div className="todoList">
+          <InputForm/>
           <TodoList/>
         </div>
       </div>
