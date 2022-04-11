@@ -1,58 +1,45 @@
 import './styles/App.css';
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Clock from "./CurrentDate";
 import TodoHeader from "./components/TodoHeader";
 import InputForm from "./components/InputForm";
 import TodoList from "./components/TodoList";
 
+const App = () => {
+  const [inputState, setInputState] = useState('');
+  const [todoState, setTodoState] = useState([
+    // {id: 0, text: 'Todo list test', checked: false},
+  ]);
 
-class App extends Component {
-
-  id = 0
-  //초기 state
-  state = {
-    input: '',
-    todos: [
-      // {id: 0, text: 'Todo list test', checked: false},
-      // {id: 1, text: 'Todo list test2', checked: true},
-      // {id: 2, text: 'Todo list test3', checked: false}
-    ]
+  const handleInputChange = (e) => {
+    const value = e.target.value
+    setInputState(value)
   }
 
-  handleInputChange = (e) => {
-    this.setState({
-      input: e.target.value // input 다음 바뀔 값
-    });
+  const handleInputCreate = () => {
+    setTodoState(todoState.concat(
+        {
+          id: Math.random(),
+          text: inputState,
+          checked: false
+        }
+      )
+    )
   }
 
-  handleInputCreate = () => {
-    const { input, todos } = this.state;
-    this.setState({
-      input: '', // 인풋 비우기
-      // concat 사용하여 배열에 추가
-      todos: todos.concat({
-        id: this.id++,
-        text: input,
-        checked: false
-      })
-    });
-  }
-
-  handleKeyPress = (e) => {
+  const handleKeyPress = (e) => {
     // 눌려진 키가 Enter 면 handleCreate 호출
     if(e.key === 'Enter') {
-      this.handleInputCreate();
+      handleInputCreate();
     }
   }
 
-  handleToggle = (id) => {
-    const { todos } = this.state;
+  const handleToggle = (id) => {
 
     // 파라미터로 받은 id 를 가지고 몇번째 아이템인지 찾습니다.
-    const index = todos.findIndex(todo => todo.id === id);
-    const selected = todos[index]; // 선택한 객체
-
-    const nextTodos = [...todos]; // 배열을 복사
+    const index = todoState.findIndex(todo => todo.id === id);
+    const selected = todoState[index]; // 선택한 객체
+    const nextTodos = [...todoState]; // 배열을 복사
 
     // 기존의 값들을 복사하고, checked 값을 덮어쓰기
     nextTodos[index] = {
@@ -60,54 +47,36 @@ class App extends Component {
       checked: !selected.checked
     };
 
-    this.setState({
-      todos: nextTodos
-    });
+    setTodoState(nextTodos);
   }
 
-  handleInputRemove = (id) => {
+  const handleInputRemove = (id) => {
     //파라미터로 받아온 id 를 갖고있지 않는 배열 새로 생성
-    const { todos } = this.state;
-    this.setState({
-      todos: todos.filter(todo => todo.id !== id)
-    });
-  }
-
-  render() {
-    //render 쪽에서 메소드들 전달
-    const { input, todos } = this.state;
-    const { //비구조화 할당(this를 붙여주는 작업 생략)
-      handleInputChange,
-      handleInputCreate,
-      handleKeyPress,
-      handleToggle,
-      handleInputRemove
-    } = this;
-
-    return (
-      <body>
-      <div className="appContainer">
-        <div className="todoTitle">
-          <p>To do List</p>
-        </div>
-        <div className="todoListContainer">
-          <div className="currentDate">
-            <Clock/>
-          </div>
-          <TodoHeader/>
-          <div className="todoList">
-            <InputForm value={input}
-                       onKeyPress={handleKeyPress}
-                       onChange={handleInputChange}
-                       onCreate={handleInputCreate}/>
-            <TodoList todos={todos} onToggle={handleToggle} onRemove={handleInputRemove}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
-          </div>
-        </div>
-      </div>
-      </body>
+    setTodoState(
+      todoState.filter(todo => todo.id !== id)
     );
   }
-}
 
+  return (
+    <div className="appContainer">
+      <div className="todoTitle">
+        <p>To do List</p>
+      </div>
+      <div className="todoListContainer">
+        <div className="currentDate">
+          <Clock/>
+        </div>
+        <TodoHeader/>
+        <div className="todoList">
+          <InputForm value={inputState}
+                     onKeyPress={handleKeyPress}
+                     onChange={handleInputChange}
+                     onCreate={handleInputCreate}/>
+          <TodoList todos={todoState} onToggle={handleToggle} onRemove={handleInputRemove}/> {/*todos안에 객체를 컴포넌트 배열로 변환*/}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default App;
