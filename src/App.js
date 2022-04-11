@@ -2,14 +2,14 @@ import './styles/App.css';
 import React, {Component} from 'react';
 import Clock from "./CurrentDate";
 import TodoHeader from "./components/TodoHeader";
-import TodoList from "./components/TodoList";
 import InputForm from "./components/InputForm";
+import TodoList from "./components/TodoList";
 
 
 class App extends Component {
 
   id = 0
-
+  //초기 state
   state = {
     input: '',
     todos: [
@@ -21,15 +21,15 @@ class App extends Component {
 
   handleInputChange = (e) => {
     this.setState({
-      input: e.target.value // input 의 다음 바뀔 값
+      input: e.target.value // input 다음 바뀔 값
     });
   }
 
   handleInputCreate = () => {
     const { input, todos } = this.state;
     this.setState({
-      input: '', // 인풋 비우고
-      // concat 을 사용하여 배열에 추가
+      input: '', // 인풋 비우기
+      // concat 사용하여 배열에 추가
       todos: todos.concat({
         id: this.id++,
         text: input,
@@ -74,6 +74,7 @@ class App extends Component {
   }
 
   render() {
+    //render 쪽에서 메소드들 전달
     const { input, todos } = this.state;
     const { //비구조화 할당(this를 붙여주는 작업 생략)
       handleInputChange,
@@ -108,26 +109,5 @@ class App extends Component {
   }
 }
 
-// const App = () => {
-//   return (
-//     <body>
-//     <div className="appContainer">
-//       <div className="todoTitle">
-//         <p>To do List</p>
-//       </div>
-//       <div className="todoListContainer">
-//         <div className="currentDate">
-//           <Clock/>
-//         </div>
-//         <TodoHeader/>
-//         <div className="todoList">
-//           <InputForm/>
-//           <TodoList/>
-//         </div>
-//       </div>
-//     </div>
-//     </body>
-//   );
-// };
 
 export default App;
