@@ -1,21 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import TodoItem from "./TodoItem";
+import React, { Component } from 'react';
+import TodoItem from './TodoItem';
 
-const TodoListBlock = styled.div`
-  flex: 1;
-  overflow-x: auto;
-`;
+class TodoItemList extends Component {
+  render() {
+    const { todos, onToggle, onRemove } = this.props;
 
-function TodoList() {
-  return (
-    <TodoListBlock>
-      <TodoItem text="프로젝트 생성하기" done={true} />
-      <TodoItem text="컴포넌트 스타일링 하기" done={true} />
-      <TodoItem text="Context 만들기" done={false} />
-      <TodoItem text="기능 구현하기" done={false} />
-    </TodoListBlock>
-  );
+    return (
+      <div>
+        <TodoItem text="할 일 목록1"/>
+        <TodoItem text="할 일 목록2"/>
+        <TodoItem text="할 일 목록3"/>
+      </div>
+    );
+  }
 }
 
-export default TodoList;
+export default TodoItemList;
