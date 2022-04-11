@@ -13,13 +13,15 @@ const TodoHeadStyled = styled.div`
   }
 `;
 
-const TodoHeader = () => {
+const TodoHeader = (id) => {
   const [todoState, setTodoState] = useState([])
-  const undoneTasks = () => {
+  const undoneTasks = (id) => {
     setTodoState(
-      todoState.filter(todo => !todo.checked)
+      todoState.filter(todo => !todo.done) //undefined?
     );
   }
+  // console.log(undoneTasks.todo.done)
+
 //할 일 개수 구현중..
   return (
     <TodoHeadStyled>
