@@ -1,9 +1,10 @@
 import './styles/App.css';
 import React, {useState} from 'react';
-import Clock from "./CurrentDate";
+import Clock from "./components/CurrentDate";
 import TodoHeader from "./components/TodoHeader";
 import InputForm from "./components/InputForm";
 import TodoList from "./components/TodoList";
+import axios from "axios";
 
 const App = () => {
   const [inputState, setInputState] = useState('');
@@ -58,6 +59,17 @@ const App = () => {
       todoState.filter(todo => todo.id !== id)
     );
   }
+  
+  const getData = async () => {
+    try {
+      //응답 성공
+      const response = await axios.get('http://125.6.37.30:4000/api/todo-list');
+      console.log('axios get 성공', response);
+    } catch (error) {
+      //응답 실패
+      console.error(error);
+    }
+  }
 
   return (
     <div className="appContainer">
@@ -68,7 +80,7 @@ const App = () => {
         <div className="currentDate">
           <Clock/>
         </div>
-        <TodoHeader/>
+        <TodoHeader todoCount={todoState.filter(todo => todo.checked === false)}/>
         <div className="todoList">
           <InputForm value={inputState}
                      onKeyPress={handleKeyPress}

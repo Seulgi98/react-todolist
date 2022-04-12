@@ -13,19 +13,18 @@ const TodoHeadStyled = styled.div`
   }
 `;
 
-const TodoHeader = (id) => {
-  const [todoState, setTodoState] = useState([])
-  const undoneTasks = (id) => {
-    setTodoState(
-      todoState.filter(todo => !todo.done) //undefined?
-    );
-  }
-  // console.log(undoneTasks.todo.done)
-
+const TodoHeader = ({todoCount}) => {
+  // const [todoState, setTodoState] = useState([])
+  // const undoneTasks = (id) => {
+  //   setTodoState(
+  //     todoState.filter(todo => todo.checked === false) //undefined?
+  //   );
+  // }
+  // console.log(undoneTasks.todo)
 //할 일 개수 구현중..
   return (
     <TodoHeadStyled>
-      <div className='todoCount'>할일 {undoneTasks.length}개 남음</div>
+      <div className='todoCount'>할일 {todoCount.length}개 남음</div>
     </TodoHeadStyled>
   );
 };
