@@ -2,7 +2,7 @@
   <h1 align="center"> React로 만드는 Todo List </h1>
 <p align="center">
 React를 활용한 간단한 to do List 입니다. Github 페이지로 호스팅 됩니다.
-<br/>페이지는 <a href="">DEMO</a>에서 확인하실 수 있습니다.
+<br/>페이지는 <a href="https://seulgi98.github.io/react-todolist/">DEMO</a>에서 확인하실 수 있습니다.
 <br/>
 <br/>
 <h3>Preview1
