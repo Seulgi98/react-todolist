@@ -1,25 +1,9 @@
 <p align="center">
   <h1 align="center"> React로 만드는 Todo List </h1>
 <p align="center">
-React를 활용한 간단한 to do List 입니다. Github 페이지로 호스팅 됩니다.
-<br/>페이지는 <a href="https://seulgi98.github.io/react-todolist/">DEMO</a>에서 확인하실 수 있습니다.
-<br/> (페이지 연동 중 입니다. 미리보기를 확인해주세요.)
+React를 활용한 간단한 to do List 입니다.
 <br/>
-<h3>Preview1
-  
-![스크린샷 2022-04-13 오전 10 02 53](https://user-images.githubusercontent.com/68500858/163078672-cc88f32c-d03c-4dce-8ecf-6d82dd611a82.png)
-  
 <br/>
-<h3>Preview2
-  
-![스크린샷 2022-04-13 오전 10 00 50](https://user-images.githubusercontent.com/68500858/163078523-fc2bf136-f794-4ce1-945b-fa1901da5737.png)
-
-<br/>
-<h3>Preview3
-  
-![투두리스트 프로젝트](https://user-images.githubusercontent.com/68500858/166197361-19b79960-b5fa-402f-ab55-950173202d43.gif)  
-<br/>
-  
 ## Tech 🛠
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
 <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
@@ -42,3 +26,22 @@ React를 활용한 간단한 to do List 입니다. Github 페이지로 호스팅
  
   
 👩🏻‍💻 design by.Seulgi98
+<br/>
+<br/>
+
+<h3>Preview1
+  
+![스크린샷 2022-04-13 오전 10 02 53](https://user-images.githubusercontent.com/68500858/163078672-cc88f32c-d03c-4dce-8ecf-6d82dd611a82.png)
+  
+<br/>
+<h3>Preview2
+  
+![스크린샷 2022-04-13 오전 10 00 50](https://user-images.githubusercontent.com/68500858/163078523-fc2bf136-f794-4ce1-945b-fa1901da5737.png)
+
+<br/>
+<h3>Preview3
+  
+![투두리스트 프로젝트](https://user-images.githubusercontent.com/68500858/166197361-19b79960-b5fa-402f-ab55-950173202d43.gif)  
+<br/>
+  
+
